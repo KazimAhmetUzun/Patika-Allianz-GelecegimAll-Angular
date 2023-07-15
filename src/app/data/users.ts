@@ -129,9 +129,9 @@ export const USERS: User[] = [
   },  
   {
       userId: 1,
-      username: "jgaylard0",
-      email: "akobelt0@github.io",
-      creationDate: "2014-11-18",
+      username: "kazim61",
+      email: "kazimahmetuzun@gmail.com",
+      creationDate: "1998-02-10",
       isActive: true
     },
     {

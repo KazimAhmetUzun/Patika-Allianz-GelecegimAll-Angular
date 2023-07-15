@@ -5,8 +5,8 @@ export const POSTS: Post[] = [
       postId: 1,
       userId: 1,
       categoryId: 1,
-      title: "Dr",
-      content: "morbi vestibulum velit id pretium iaculis diam erat fermentum justo",
+      title: "Dev",
+      content: "KAU",
       viewCount: 38,
       creationDate: "2020-04-25",
       isPublished: true
