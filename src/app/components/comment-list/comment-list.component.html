@@ -1,0 +1,42 @@
+<div class="container">
+  <h2 class="text-center">Comment List</h2>
+
+  <div class="filter-container">
+    <label for="postIdFilter">Filter by Post ID:</label>
+    <input type="number" id="postIdFilter" name="postIdFilter" [(ngModel)]="postIdFilter">
+    <button (click)="filterCommentsByPostId(postIdFilter)">Filter</button>
+    <button (click)="clearPostIdFilter()">Clear Filter</button>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <tr>
+        <th>Comment ID</th>
+        <th>Post ID</th>
+        <th>User ID</th>
+        <th>Comment</th>
+        <th>Creation Date</th>
+        <th>Confirmation Status</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let comment of comments">
+        <td>{{ comment.commentId }}</td>
+        <td>{{ comment.postId }}</td>
+        <td>{{ comment.userId }}</td>
+        <td>{{ comment.comment }}</td>
+        <td>{{ comment.creationDate }}</td>
+        <td>{{ comment.isConfirmed ? 'Confirmed' : 'Pending' }}</td>
+        <td>
+          <button (click)="goToCommentDetail(comment)">Go to Comment Detail</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="pagination-container">
+    <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Previous Page</button>
+    <button (click)="goToNextPage()" [disabled]="currentPage * pageSize >= totalComments">Next Page</button>
+  </div>
+
+  <button (click)="goToAddComment()">Add Comment</button>
+</div>

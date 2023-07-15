@@ -1,0 +1,18 @@
+table.post-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.post-table th, table.post-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table.post-table th {
+  background-color: #f2f2f2;
+}
+
+table.post-table tr:hover {
+  background-color: #f5f5f5;
+}

@@ -1,0 +1,7 @@
+<div *ngIf="category">
+  <h1>Kategori Detayları</h1>
+  <p>Kategori: {{ category.name }}</p>
+  <p>Gönderi Sayısı: {{ postCount }}</p>
+
+  <button (click)="goToPostList(category.categoryId)">Kategoriye Ait Gönderileri Görüntüle</button>
+</div>

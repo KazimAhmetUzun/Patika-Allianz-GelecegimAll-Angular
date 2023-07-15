@@ -1,0 +1,50 @@
+/* styles.css */
+
+/* Sayfa arka planı */
+body {
+    background-color: #e6f1f7; /* Açık mavi */
+  }
+  
+  .container {
+    background-color: #e6f1f7; /* Açık mavi */
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  /* Ana başlık */
+  h1 {
+    color: #800000; /* Bordo */
+    text-align: center;
+    border: 2px solid #0056b3; /* Koyu mavi */
+    padding: 10px;
+    background-color: #0056b3; /* Koyu mavi */
+  }
+  
+  /* Linkler */
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav li a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Mavi */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-style: italic;
+  }
+  
+  nav li a:hover {
+    background-color: #0056b3; /* Koyu mavi */
+  }
+  

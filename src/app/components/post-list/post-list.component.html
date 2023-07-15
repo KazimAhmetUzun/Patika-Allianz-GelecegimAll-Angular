@@ -1,0 +1,86 @@
+<h1>Post List</h1>
+
+<div class="filter-container">
+  <label>
+    User ID:
+    <input type="number" [(ngModel)]="userIdFilter" name="userId">
+  </label>
+  <label>
+    Post ID:
+    <input type="number" [(ngModel)]="postIdFilter" name="postId">
+  </label>
+  <label>
+    Category ID:
+    <input type="number" [(ngModel)]="categoryIdFilter" name="categoryId">
+  </label>
+  <button (click)="applyFilters()">Filter</button>
+  <button (click)="clearFilters()">Clear Filters</button>
+</div>
+
+<div class="pagination-buttons">
+  <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Previous</button>
+  <button (click)="goToNextPage()" [disabled]="currentPage * pageSize >= totalPosts">Next</button>
+</div>
+
+<div class="table-container">
+  <table class="post-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>Category ID</th>
+        <th>Title</th>
+        <th>Creation Date</th>
+        <th>Publication Status</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of getPaginatedPosts()">
+        <td>{{ post.postId }}</td>
+        <td>{{ post.userId }}</td>
+        <td>{{ post.categoryId }}</td>
+        <td>
+          <ng-container *ngIf="!isEditing || post.postId !== editedPost.postId">
+            {{ post.title }}
+          </ng-container>
+          <ng-container *ngIf="isEditing && post.postId === editedPost.postId">
+            <input type="text" [(ngModel)]="editedPost.title">
+          </ng-container>
+        </td>
+        <td>{{ post.creationDate }}</td>
+        <td>{{ post.isPublished ? 'Published' : 'Not Published' }}</td>
+        <td>
+          <button *ngIf="!isEditing" (click)="editPost(post)">Edit</button>
+          <button *ngIf="isEditing && post.postId === editedPost.postId" (click)="savePost()">Save</button>
+          <button *ngIf="isEditing && post.postId === editedPost.postId" (click)="cancelEdit()">Cancel</button>
+        </td>
+        <td>
+          <button (click)="deletePost(post)">Delete</button>
+        </td>
+        <td>
+          <button (click)="goToPostDetail(post.postId)">Detail</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Add New Post</h2>
+<form (submit)="addPost()">
+  <label>
+    Title:
+    <input type="text" [(ngModel)]="newPost.title" name="title">
+  </label>
+  <label>
+    Content:
+    <textarea [(ngModel)]="newPost.content" name="content"></textarea>
+  </label>
+  <label>
+    Category ID:
+    <input type="number" [(ngModel)]="newPost.categoryId" name="categoryId">
+  </label>
+  <button type="submit">Add</button>
+</form>

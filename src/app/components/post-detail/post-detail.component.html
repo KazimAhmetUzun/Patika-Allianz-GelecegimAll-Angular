@@ -1,0 +1,23 @@
+<h1>Gönderi Detayları</h1>
+
+<div *ngIf="post">
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.creationDate }}</p>
+  <p>Kullanıcı: {{ user.username }}</p>
+  <p>Kategori: {{ category.name }}</p>
+  <p>İçerik: {{ post.content }}</p>
+</div>
+
+<div *ngIf="comments && comments.length > 0">
+  <h3>Yorumlar</h3>
+  <ul>
+    <li *ngFor="let comment of comments">
+      <p>{{ comment.comment }}</p>
+      <p>Yazar: {{ comment.userId }}</p>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="comments && comments.length === 0">
+  <p>Henüz yorum yok.</p>
+</div>

@@ -1,0 +1,15 @@
+<form (submit)="addComment()">
+  <div>
+    <label for="postId">Post ID:</label>
+    <input type="number" id="postId" name="postId" [(ngModel)]="comment.postId" required>
+  </div>
+  <div>
+    <label for="userId">User ID:</label>
+    <input type="number" id="userId" name="userId" [(ngModel)]="comment.userId" required>
+  </div>
+  <div>
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment" [(ngModel)]="comment.comment" required></textarea>
+  </div>
+  <button type="submit">Add Comment</button>
+</form>

@@ -1,0 +1,41 @@
+<div class="header-container">
+  <h2>Category List</h2>
+</div>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Creation Date</th>
+    <th>Post Count</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let category of categories">
+    <td>{{ category.categoryId }}</td>
+    <td>{{ category.name }}</td>
+    <td>{{ category.creationDate }}</td>
+    <td>{{ category.posts.length }}</td>
+    <td>
+      <a [routerLink]="['/categories', category.categoryId]">Details</a>
+    </td>
+    <td>
+      <button (click)="editCategory(category)">Edit</button>
+    </td>
+  </tr>
+</table>
+
+<div class="pagination-buttons">
+  <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Previous</button>
+  <button (click)="goToNextPage()" [disabled]="currentPage * pageSize >= totalCategories">Next</button>
+</div>
+
+<div class="add-category-form">
+  <h2>Add Category</h2>
+  <form (submit)="addNewCategory(newCategoryName.value)">
+    <div class="form-group">
+      <label for="newCategoryName">Name:</label>
+      <input type="text" id="newCategoryName" name="newCategoryName" #newCategoryName required>
+    </div>
+    <button type="submit">Add</button>
+  </form>                                     
+</div>
